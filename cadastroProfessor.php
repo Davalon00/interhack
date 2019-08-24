@@ -8,10 +8,10 @@
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<meta charset ="UTF-8">
-		<title>Cadastro de Eventos</title>
+		<title>Cadastro de Professores</title>
 	</head>
 	<body>
-		<h1>Cadastro de Usuários</h1>
+		<h1>Cadastro de Professores</h1>
 		<p>Preencha as informações abaixo para cadastrar um usuário</p>
 
 		<form method="POST" action="./php/dbCadastroUsuario.php">
@@ -21,20 +21,16 @@
 			<label>Email:</label>
 			<input type="email" name="email">
 
-      <label>Senha:</label>
+            <label>Senha:</label>
 			<input type="password" name="senha">
 
-      <label>Confirmar senha:</label>
+            <label>Confirmar senha:</label>
 			<input type="password" name="senha">
+            
+            <label>Número USP:</label>
+			<input type="text" name="numusp">
 
-      <label>Senha:</label>
 
-      <select name="pos_usuario">
-          <option value="aluno">Aluno</option>
-          <option value="professor">Professor</option>
-          <option value="entidade">Entidade</option>
-          <option value="coordenacao">Coordenação</option>
-      </select>
       <input type="hidden" name="id_usuario" value="<?php ?>">
 
 

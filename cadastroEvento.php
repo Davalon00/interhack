@@ -21,13 +21,13 @@
 			<label>Data de Início:</label>
 			<input type="text" name="datai">
 
-      <label>Data de Término:</label>
+            <label>Data de Término:</label>
 			<input type="text" name="dataf">
 
-      <label>Horário de Início:</label>
+            <label>Horário de Início:</label>
 			<input type="text" name="horai">
 
-      <label>Horário de término:</label>
+            <label>Horário de término:</label>
 			<input type="text" name="horaf">
 
       <input type="hidden" name="id_usuario" value="">
