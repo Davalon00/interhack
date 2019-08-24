@@ -14,18 +14,24 @@
 		<h1>Cadastro de Coordenação</h1>
 		<p>Preencha as informações abaixo para cadastrar um usuário</p>
 
-		<form method="POST" action="./php/dbCadastroUsuario.php">
+		<form method="POST" action="./php/dbCadastroCoordenador.php">
 			<label>Nome:</label>
 			<input type="text" name="nome">
 
 			<label>Email:</label>
 			<input type="email" name="email">
 
-            <label>Senha:</label>
+      <label>Senha:</label>
 			<input type="password" name="senha">
 
-            <label>Confirmar senha:</label>
+      <label>Confirmar senha:</label>
 			<input type="password" name="senha">
+
+			<label>Número USP:</label>
+			<input type="number" name="numusp">
+
+			<label>Curso:</label>
+			<input type="text" name="curso">
 
       <input type="hidden" name="id_usuario" value="<?php ?>">
 

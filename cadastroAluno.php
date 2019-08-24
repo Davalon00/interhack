@@ -14,23 +14,26 @@
 		<h1>Cadastro de Usuários</h1>
 		<p>Preencha as informações abaixo para cadastrar um usuário</p>
 
-		<form method="POST" action="./php/dbCadastroUsuario.php">
+		<form method="POST" action="./php/dbCadastroAluno.php">
 			<label>Nome:</label>
 			<input type="text" name="nome">
 
 			<label>Email:</label>
 			<input type="email" name="email">
 
-            <label>Senha:</label>
+      <label>Senha:</label>
 			<input type="password" name="senha">
 
-            <label>Confirmar senha:</label>
+      <label>Confirmar senha:</label>
 			<input type="password" name="senha">
 
-            <label>Número USP:</label>
+      <label>Número USP:</label>
 			<input type="text" name="numusp">
 
-            <label>RG:</label>
+      <label>Curso:</label>
+			<input type="text" name="curso">
+
+      <label>RG:</label>
 			<input type="text" name="rg">
 
 

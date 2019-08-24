@@ -18,12 +18,20 @@
 			<label>Nome:</label>
 			<input type="text" name="nome">
 
+			<label>Senha:</label>
+			<input type="password" name="senha">
+
+      <label>Confirmar senha:</label>
+			<input type="password" name="senha">
+
+			<label>Sigla:</label>
+			<input type="text" name="sigla">
+
 			<label>Curso:</label>
 			<input type="text" name="curso">
-            
-            <label>Sigla:</label>
-			<input type="text" name="sigla">
-                    
+
+
+
 
       <input type="hidden" name="id_usuario" value="<?php ?>">
 

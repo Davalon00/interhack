@@ -31,8 +31,6 @@
 			<input type="text" name="horaf">
 
       <input type="hidden" name="id_usuario" value="">
-      <input type="hidden" name="pos_usuario" value="">
-
 
 			<button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
 		</form>
