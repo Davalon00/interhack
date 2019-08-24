@@ -1,10 +1,12 @@
 <?php
 
-  $nome = $_POST[''];
+    $nome = $_POST[''];
+    $nusp = $_POST['']; //ALTERAR BD E INSERT INTO
 	$email = $_POST[''];
 	$senha = $_POST[''];
 	$senhacrip = md5($passwd);
-  $posicao = $_POST[''];
+    $posicao = $_POST[''];
+    $curso = $_POST['']; //ALTERAR BD E INSERT INTO
 
 
 	$connect = mysqli_connect('127.0.0.1', 'root', '', 'Interhack');
