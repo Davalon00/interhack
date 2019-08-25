@@ -18,28 +18,25 @@
 			<label>Nome:</label>
 			<input type="text" name="nome">
 
+			<label>Sigla:</label>
+			<input type="text" name="sigla">
+
 			<label>Senha:</label>
 			<input type="password" name="senha">
 
       <label>Confirmar senha:</label>
 			<input type="password" name="senha">
 
-			<label>Sigla:</label>
-			<input type="text" name="sigla">
-
 			<label>Curso:</label>
 			<input type="text" name="curso">
 
-
-
-
-      <input type="hidden" name="id_usuario" value="<?php ?>">
+      <input type="hidden" name="id_cadastrante" value="<?php ?>">
 
 
 			<button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
 		</form>
 
-		<a href="home.php">
+		<a href="index.php">
 
 			<button class="btn btn-danger btn-sm">Retornar</button>
 
