@@ -22,10 +22,10 @@
 			<input type="email" name="email">
 
       <label>Senha:</label>
-			<input type="password" name="senha">
+			<input type="password" name="senha1">
 
       <label>Confirmar senha:</label>
-			<input type="password" name="senha">
+			<input type="password" name="senha2">
 
       <label>Número USP:</label>
 			<input type="text" name="numusp">

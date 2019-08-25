@@ -1,19 +1,20 @@
 <?php
 
-    $nome = $_POST[''];
-    $nusp = $_POST['']; //ALTERAR BD E INSERT INTO
-    $curso = $_POST['']; //ALTERAR BD E INSERT INTO
-    $email = $_POST[''];
-	$senha = $_POST[''];
+    $nome = $_POST['nome'];
+    $nusp = $_POST['numusp'];
+    $curso = $_POST['curso'];
+    $email = $_POST['email'];
+	  $senha = $_POST['senha'];
     $senhacrip = md5($passwd);
+    $id_cadastrante = $POST['id_cadastrante'];
 
 
 	$connect = mysqli_connect('127.0.0.1', 'root', '', 'Interhack');
-	$query = "INSERT INTO user (nome_usuario, pos_usuario, email_usuario, senha_usuario) VALUES ('$nome', '$posicao', '$email', '$senhacrip');
+	$query = "INSERT INTO user (nome_professor, numusp_professor, email_professor, senha_professor, id_cadastrante) VALUES ('$nome', '$nusp', '$email', '$senhacrip', $id_cadastrante);";
 
 	$register = mysqli_query($connect, $query) or die('Erro ao cadastrar!');
 
-	header("Location: ");
+	header("Location: cadastroProfessor.php");
 	exit();
 
 ?>

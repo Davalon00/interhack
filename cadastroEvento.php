@@ -35,7 +35,7 @@
 			<button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
 		</form>
 
-		<a href="home.php">
+		<a href="index.php">
 
 			<button class="btn btn-danger btn-sm">Retornar</button>
 
