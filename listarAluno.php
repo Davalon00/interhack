@@ -1,8 +1,8 @@
 <?php
-	/*session_start();
+	session_start();
 	if(!isset($_SESSION['email'])){
 		header("Location: index.php");
-		exit;}*/
+		exit;}
 
 	include './php/dbSelecionarAluno.php';
 ?>
@@ -14,7 +14,9 @@
 		<title>Alunos</title>
 	</head>
 	<body>
-		<h1>Listagem de Alunos</h1>
+		<<div>
+				<h1 style="background-color: #9193a1; color: #fff; height:6%; border-bottom: 2px solid #595959; border-top: 2px solid #595959; ">Listagem de Alunos</h1>
+		</div>
 
 		<table class="table table-striped table-light">
                 <thead>
@@ -44,7 +46,7 @@
 																<input type="hidden" name="rg"          value="<?=$dados['rg_aluno']          ?>">
 																<input type="hidden" name="numusp" 		  value="<?=$dados['numusp_aluno']    ?>">
                                 <button class="btn btn-primary">
-                                    <i class="fas fa-pencil-alt"></i>
+                                    Editar
                                 </button>
                             </form>
 
@@ -53,7 +55,7 @@
                             <form class="delete" method="POST" action="./php/dbDeletarAluno.php">
                                 <input type="hidden" name="id_aluno" value="<?=$dados['id_aluno']?>">
                                 <button class="btn btn-danger">
-                                    <i class="far fa-trash-alt"></i>
+                                    Apagar
                                 </button>
                             </form>
                         </td>
@@ -64,11 +66,16 @@
             </table>
 
 
-		<a href="index.html">
-
-			<button class="btn btn-danger btn-sm">Retornar</button>
-
+		<a href="home.php">
+			<button class="btn btn-danger btn-sm" href="#">Retornar</button>
 		</a>
+		<a href="cadastroAluno.php">
+			<button class="btn btn-success btn-sm" href="#">Cadastrar</button>
+		</a>
+
+
+
+
 
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 

@@ -13,7 +13,7 @@
 
 	$register = mysqli_query($connect, $query) or die('Erro ao cadastrar!');
 
-	header("Location: ../cadastroCoordenador.php");
+	header("Location: ../listarCoordenador.php");
 	exit();
 
 ?>

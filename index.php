@@ -1,4 +1,12 @@
+<?php
+	 session_start();
+	 if(isset($_SESSION['email'])){
+	   header("Location: home.php");
+		   exit;
+	}
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -9,7 +17,7 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
+    <link href="img/logoeach2.png" rel="icon">
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -26,13 +34,9 @@
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
 
-    <!-- =======================================================
-    Theme Name: TheEvent
-    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
 </head>
 
 <body>
@@ -51,10 +55,10 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">Home</a></li>
-                    <li><a href="#about">Calendário</a></li>
-                    <li><a href="#speakers">Certificados</a></li>
-                    <li><a href="#schedule">Schedule</a></li>
+										<li class="menu-active"><a href="#intro" style="font-size: 20px; margin-top: -4px;"> Home </a></li>
+										<li><a href="#speakers" style="font-size: 20px; margin-top: -4px;"> Eventos </a></li>
+										<li><a href="#calendar" style="font-size: 20px; margin-top: -4px;"> Calendário </a></li>
+										<li><a href="#contact" style="font-size: 20px; margin-top: -4px;"> Contato </a></li>
                     <li class="buy-tickets"><a style="background-color: white;" class="btn btn-primary" data-toggle="modal" data-target="#modalEntrar"><strong style="color: black;">Entrar</strong></a></li>
                     <li class="buy-tickets"><a style="background-color: white;" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastrar"><strong style="color: black;">Cadastrar</strong></a></li>
                 </ul>
@@ -74,7 +78,7 @@
           </button>
                 </div>
                 <div class="modal-body">
-                  <form method="POST" action="">
+                  <form method="POST" action="./php/validarLogin.php">
                     <div class="form-group">
                       <label for="email">E-mail:</label>
                       <input type="email" name="email" id="email" class="form-control" placeholder="Insira seu email" required maxlength="100">
@@ -94,7 +98,7 @@
     </div>
 
     <!-- MODAL CADASTRAR -->
-    <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="modalCadastrarLabel" aria-hidden="true">
+		<div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="modalCadastrarLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,16 +118,17 @@
                         <input type="email" name="email" id="email" class="form-control" placeholder="Insira seu email" required maxlength="100">
                       </div>
                       <div class="form-group">
-                        <label for="senha">Senha:</label>
-                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira sua senha" required maxlength="20">
+                        <label for="senha2">Senha:</label>
+                        <input type="password" name="senha2" id="senha2" class="form-control" placeholder="Insira a da senha" required>
                       </div>
                       <div class="form-group">
                         <label for="confirmarSenha">Confirmar senha:</label>
-                        <input type="password" name="confirmarSenha" id="confirmarSenh+a" class="form-control" placeholder="Insira a confirmação da senha" required>
+                        <input type="password" name="confirmarSenha" id="confirmarSenha" class="form-control" placeholder="Insira a confirmação da senha" required>
                       </div>
+
                       <div class="form-group">
                         <label for="numusp">Número USP:</label>
-                        <input type="number" name="numusp" id="numusp" class="form-control" placeholder="Insira seu número USP" required  maxlength="8">
+                        <input type="text" name="numusp" id="numusp" class="form-control" placeholder="Insira seu número USP" required  maxlength="8" onkeyup="somenteNumeros(this);">
                       </div>
                       <div class="form-group">
                         <label for="curso">Curso:</label>
@@ -147,7 +152,7 @@
                       </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary botao-vermelho cinza" data-dismiss="modal"> Fechar </button>
-                            <button type="submit" class="btn btn-primary btn-lg botao-vermelho" oninvalid="">Cadastrar</button>
+                            <button type="submit" class="btn btn-primary btn-lg botao-vermelho">Cadastrar</button>
                         </div>
                     </form>
                 </div>
@@ -161,10 +166,9 @@
     <section id="intro">
         <div class="intro-container wow fadeIn">
             <h1 class="mb-4 pb-0"> A sua plataforma de <br><span> eventos universitários</span> </h1>
-            <p class="mb-4 pb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+            <p class="mb-4 pb-0">Facilitando experiências, realizando encontros.</p>
             <!--<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a>--><br>
-            <a href="#about" class="about-btn scrollto"> Sobre o evento </a>
         </div>
     </section>
 
@@ -177,17 +181,17 @@
         <section id="speakers" class="wow fadeInUp">
             <div class="container">
                 <div class="section-header">
-                    <h2> Eventos </h2>
+                    <h2 style="margin-top: 1.1em;"> Eventos </h2>
                     <p> Estes são os eventos com data mais próxima de acontecer </p>
                 </div>
 
-                <div class="row">
+								<div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+                            <img src="img/logossi.jpg" alt="Speaker 1" class="img-fluid tamanho-imagens">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Brenden Legros</a></h3>
-                                <p>Quas alias incidunt</p>
+                                <h3><a href="speaker-details.html">Semana de Sistemas de Informação</a></h3>
+                                <p>USP Leste</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -199,10 +203,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
+                            <img src="img/palestrassi.jpg" alt="Speaker 2" class="img-fluid tamanho-imagens">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
-                                <p>Consequuntur odio aut</p>
+                                <h3><a href="speaker-details.html">Palestra de IA</a></h3>
+                                <p>Anfiteatro</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -214,10 +218,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
+                            <img src="img/comida.jpg" alt="Speaker 3" class="img-fluid tamanho-imagens" style="height: 380px;">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
-                                <p>Fugiat laborum et</p>
+                                <h3><a href="speaker-details.html">Almoço</a></h3>
+                                <p>estava muito bom</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -229,10 +233,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
+                            <img src="img/palestra22.jpg" alt="Speaker 4" class="img-fluid tamanho-imagens">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
-                                <p>Debitis iure vero</p>
+                                <h3><a href="speaker-details.html">Outra Palestra</a></h3>
+                                <p>USP Leste</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -244,10 +248,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
+                            <img src="img/profs.jpg" alt="Speaker 5" class="img-fluid tamanho-imagens">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
-                                <p>Qui molestiae natus</p>
+                                <h3><a href="speaker-details.html">Debate Sobre o Futuro da área de TI</a></h3>
+                                <p>EACH l1 116</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -259,10 +263,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
+                            <img src="img/logointerhack.jpg" alt="Speaker 6" class="img-fluid tamanho-imagens">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Willow Trantow</a></h3>
-                                <p>Non autem dicta</p>
+                                <h3><a href="speaker-details.html">Interhack</a></h3>
+                                <p>IME, ICMC, EACH</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -276,6 +280,11 @@
             </div>
 
         </section>
+
+        <section id="calendar" class="wow fadeInUp">
+						<img src="img/calendario.png" alt="Speaker 3" class="img-fluid tamanho-imagens" style="height: 80%; margin-left: auto; margin-right: auto; display: block;">
+        </section>
+
         <!--==========================
       Contact Section
     ============================-->
@@ -284,61 +293,34 @@
             <div class="container">
 
                 <div class="section-header">
-                    <h2>Contact Us</h2>
-                    <p>Nihil officia ut sint molestiae tenetur.</p>
+                    <h2> Contate-nos </h2>
+                    <p> Entre em contato para obter o sistema ou para tirar dúvidas! </p>
                 </div>
 
-                <div class="row contact-info">
-
-                    <div class="col-md-4">
-                        <div class="contact-address">
-                            <i class="ion-ios-location-outline"></i>
-                            <h3>Address</h3>
-                            <address>A108 Adam Street, NY 535022, USA</address>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="contact-phone">
-                            <i class="ion-ios-telephone-outline"></i>
-                            <h3>Phone Number</h3>
-                            <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="contact-email">
-                            <i class="ion-ios-email-outline"></i>
-                            <h3>Email</h3>
-                            <p><a href="mailto:info@example.com">info@example.com</a></p>
-                        </div>
-                    </div>
-
-                </div>
 
                 <div class="form">
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="sendmessage"> Sua mensagem foi enviada. Obrigado(a)!</div>
                     <div id="errormessage"></div>
                     <form action="" method="post" role="form" class="contactForm">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome completo" data-rule="minlen:4" data-msg="Por favor, escreva pelo menos 4 caracteres." />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" data-rule="email" data-msg="Por favor, envie um e-mail válido." />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Por favor, escreva pelo menos 8 caracteres de assunto." />
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor, escreva sua mensagem." placeholder="Escreva sua mensagem aqui"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="text-center"><button type="submit"> Enviar mensagem </button></div>
                     </form>
                 </div>
 
@@ -357,40 +339,15 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-info">
+                    <div class="col-lg-6 col-md-6 footer-info">
                         <img src="img/logoeach.png" alt="TheEvenet">
-                        <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate
-                            cupiditate debitis accusamus repellat cumque.</p>
+                        <p>A Escola de Artes, Ciências e Humanidades (EACH - USP), localizada no campus USP Leste e por isso comumente referida assim, é uma unidade de ensino, pesquisa e extensão da Universidade de São Paulo. Foi inaugurada no dia 27 de fevereiro de 2005 e pertence ao segmento leste do campus da Capital da Universidade de São Paulo, estando localizada no distrito de Ermelino Matarazzo, às margens da rodovia Ayrton Senna, ao lado do Parque Ecológico do Tietê e da estação de trem USP Leste da CPTM.</p>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
+                    <div class="col-lg-6 col-md-6 footer-contact">
+                        <h4> Contate-nos </h4>
                         <p>
-                            A108 Adam Street <br> New York, NY 535022<br> United States <br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            <strong>Email:</strong> contato@projeto.com<br>
                         </p>
 
                         <div class="social-links">
@@ -426,7 +383,36 @@
 
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
+    <!-- JavaScript Libraries --><script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- JavaScript Libraries -->
+    <script type="text/javascript">
+
+      var senha = document.getElementById("senha2");
+      var confirmarSenha = document.getElementById("confirmarSenha");
+
+
+      function validarSenha(){
+        console.log(senha.value);
+        console.log(confirmarSenha.value)
+        if(senha.value != confirmarSenha.value) {
+          confirmarSenha.setCustomValidity("Senhas diferentes!");
+        } else {
+          confirmarSenha.setCustomValidity("");
+        }
+      }
+
+      senha.onchange = validarSenha;
+      confirmarSenha.onkeyup = validarSenha;
+
+			function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var numusp = num;
+        if (er.test(numusp.value)) {
+          numusp.value = "";
+        }
+			}
+    </script>
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/jquery/jquery-migrate.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>

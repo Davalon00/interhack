@@ -1,8 +1,8 @@
 <?php
-	/*session_start();
+	session_start();
 	if(!isset($_SESSION['email'])){
 		header("Location: index.php");
-		exit;}*/
+		exit;}
 
 	$id_evento = $_POST['id'];
 	$nome = $_POST['nome'];
@@ -10,6 +10,7 @@
 	$dataf = $_POST['dataf'];
 	$horai = $_POST['horai'];
 	$horaf = $_POST['horaf'];
+	$descricao = $_POST['descricao'];
 
 ?>
 <html>
@@ -40,6 +41,9 @@
 
       <label>Horário de Término:</label>
 			<input type="text" name="horaf_evento" value="<?= $horaf?>">
+
+			<label>Descrição do Evento:</label>
+			<input type="text" name="descricao_evento" value="<?= $descricao?>">
 
 			<button type="submit">Editar</button>
 		</form>
